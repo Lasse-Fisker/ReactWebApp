@@ -10,13 +10,12 @@ import { Button, Typography } from "@material-ui/core";
 const stripAndConvertStringToNumber = (stringToConvert) =>
   Number.parseFloat(stringToConvert.trim(), 10);
 
-const mapMeasurement = (measurement) => ({
-  id: measurement._id,
-  timestamp: parse(measurement.Timestamp, "dd-MM-yyyy HH:mm:ss", new Date()),
-  lysthusTemp: stripAndConvertStringToNumber(measurement.LysthusTemp),
-  lysthusFugt: stripAndConvertStringToNumber(measurement.LysthusFugt),
-  udeTemp: stripAndConvertStringToNumber(measurement.UdeTemp),
-  udeFugt: stripAndConvertStringToNumber(measurement.UdeFugt),
+const mapMeasurement = (measurement) => ({   
+  timestamp: measurement.Timestamp, 
+  lysthusTemp: measurement.LysthusTemp,
+  lysthusFugt: measurement.LysthusFUgt,
+  udeTemp: measurement.UdeTemp,
+  udeFugt: measurement.UdeFugt,
 });
 
 const useStyles = makeStyles({
@@ -52,7 +51,7 @@ function App() {
       <CssBaseline />
       <div className={classes.root}>
         <Typography variant="h2" component="h1">
-          Lysthus 1.0.0
+          Lysthus 2.0.0
         </Typography>
         <Button
           variant="contained"
@@ -62,6 +61,7 @@ function App() {
           {onlyLatest ? "Vis alle målinger" : "Vis seneste måling"}
         </Button>
         <div className={classes.table}>
+          
           {<Measurements measurements={measurements} onlyLatest={onlyLatest} />}
         </div>
       </div>
