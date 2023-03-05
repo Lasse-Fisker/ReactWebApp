@@ -51,7 +51,7 @@ function App() {
       <CssBaseline />
       <div className={classes.root}>
         <Typography variant="h2" component="h1">
-          Lysthus 2.0.0
+          Lysthus 2.0.1
         </Typography>
         <Button
           variant="contained"
