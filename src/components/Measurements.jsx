@@ -27,7 +27,7 @@ export const Measurements = ({ measurements, onlyLatest }) => {
 
   const buildMeasurementRow = (measurement) => (
     <TableRow>
-      <TableCell align="left">{measurement.timestamp}</TableCell>
+      <TableCell align="left">{measurement.timestamp.substring(11, 18)}</TableCell>
       <TableCell align="left">{measurement.lysthusTemp}&#8451;</TableCell>
       <TableCell align="left">{measurement.lysthusFugt}%</TableCell>
       <TableCell align="left">{measurement.udeTemp}&#8451;</TableCell>
