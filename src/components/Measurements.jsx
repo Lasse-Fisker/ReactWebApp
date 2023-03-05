@@ -10,6 +10,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Paper from "@material-ui/core/Paper";
 import { format } from "date-fns";
 
+
 const useStyles = makeStyles({
   table: {
     minWidth: 250,
@@ -20,13 +21,13 @@ export const Measurements = ({ measurements, onlyLatest }) => {
   const classes = useStyles();
   const buildTimeHeader = () => {
     if (measurements.length) {
-      return <h2> {format(measurements[0].timestamp, "PP")}</h2>;
+      return <h2> {measurements[0].timestamp}</h2>;
     }
   };
 
   const buildMeasurementRow = (measurement) => (
-    <TableRow key={measurements.timestamp}>
-      <TableCell align="left">{format(measurement.timestamp, "k:m")}</TableCell>
+    <TableRow>
+      <TableCell align="left">{measurement.timestamp}</TableCell>
       <TableCell align="left">{measurement.lysthusTemp}&#8451;</TableCell>
       <TableCell align="left">{measurement.lysthusFugt}%</TableCell>
       <TableCell align="left">{measurement.udeTemp}&#8451;</TableCell>
