@@ -7,15 +7,15 @@ export const handler = async (event, context) => {
     const db = await connectDb();
     const collection = db.collection("doegndata");
 
-   const data = await collection.find().sort({$natural:-1}).limit(24).toArray();
+    const data = await collection.find().sort({$natural:-1}).limit(24).toArray();
   
     const response = {
       msg: "Products successfully found",
-      data,
+      data      
     };
 
     return {
-      statusCode: 200,
+      statusCode: 200,      
       body: JSON.stringify(response),
     };
   } catch (err) {
